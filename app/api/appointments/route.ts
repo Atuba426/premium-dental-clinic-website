@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { connectToDatabase } from "@/lib/mongodb";
-import Appointment, { SERVICE_OPTIONS, IAppointment } from "@/lib/models/Appointment";
+import Appointment, { SERVICE_OPTIONS, IAppointment } from "@/lib/models/appointment";
 import { sendAppointmentConfirmationEmail, sendAppointmentNotificationToClinic } from "@/lib/email";
 
 const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;

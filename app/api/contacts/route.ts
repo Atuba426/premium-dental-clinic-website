@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { connectToDatabase } from "@/lib/mongodb";
-import Contact from "@/lib/models/Contact";
+import Contact from "@/lib/models/contact";
 
 // Basic email shape check. Not a full RFC 5322 validator — that's rarely
 // worth the false-positive rate — just enough to reject obvious junk.
