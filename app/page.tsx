@@ -2,12 +2,14 @@ import Navbar from "@/components/layout/Navbar";
 import Hero from "@/components/sections/Hero";
 import About from "@/components/sections/About";
 import Services from "@/components/sections/Services";
+import Booking from "@/components/sections/Booking";
 import WhyChooseUs from "@/components/sections/WhyChooseUs";
 import Doctors from "@/components/sections/Doctors";
 import Testimonials from "@/components/sections/Testimonals";
 import Gallery from "@/components/sections/Gallery";
 import FAQ from "@/components/sections/FAQ";
 import Contact from "@/components/sections/Contact";
+import Newsletter from "@/components/sections/Newsletter";
 import Footer from "@/components/layout/Footer";
 
 // LocalBusiness/Dentist structured data helps search engines surface rich
@@ -55,12 +57,14 @@ export default function Home() {
         <Hero />
         <About />
         <Services />
+        <Booking/>
         <WhyChooseUs />
         <Doctors />
         <Testimonials />
         <Gallery />
         <FAQ />
         <Contact />
+        <Newsletter />
       </main>
       <Footer />
     </>

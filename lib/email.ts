@@ -1,5 +1,5 @@
 import { Resend } from "resend";
-import type { IAppointment } from "@/lib/models/Appointment";
+import type { IAppointment } from "@/lib/models/appointment";
 
 // Lazily instantiated so a missing RESEND_API_KEY only breaks the paths
 // that actually try to send email, not every import of this module

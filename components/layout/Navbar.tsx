@@ -7,15 +7,17 @@ import { AnimatePresence, motion } from "framer-motion";
 import { HiOutlineMenu, HiOutlineX } from "react-icons/hi";
 import Container from "@/components/common/Container";
 import Button from "@/components/common/Button";
+import ThemeToggle from "@/components/common/ThemeToggle";
 
 const NAV_LINKS = [
-  { label: "About", href: "#about" },
-  { label: "Services", href: "#services" },
-  { label: "Dentists", href: "#dentists" },
-  { label: "Testimonials", href: "#testimonials" },
-  { label: "Gallery", href: "#gallery" },
-  { label: "FAQ", href: "#faq" },
-  { label: "Contact", href: "#contact" },
+  { label: "About", href: "/about" },
+  { label: "Services", href: "/services" },
+  { label: "Booking", href: "/booking" },
+  { label: "Dentists", href: "/dentists" },
+  { label: "Testimonials", href: "/testimonials" },
+  { label: "Gallery", href: "/gallery" },
+  { label: "FAQ", href: "/faq" },
+  { label: "Contact", href: "/contact" },
 ];
 
 export default function Navbar() {
@@ -30,7 +32,7 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-
+  // Locking the body scroll while the mobile menu is open, and let Escape close it.
   useEffect(() => {
     document.body.style.overflow = isMenuOpen ? "hidden" : "";
 
@@ -52,16 +54,16 @@ export default function Navbar() {
       }`}
     >
       <Container className="flex h-20 items-center justify-between">
-        <Link href="#" className="flex items-center gap-2.5" aria-label="EverSmile Dental Care home">
+        <Link href="/" className="flex items-center gap-2.5" aria-label="EverSmile Dental Care home">
           <Image
             src="/logo.svg"
             alt=""
-            width={84}
-            height={84}
+            width={34}
+            height={34}
             priority
             className="h-8 w-8"
           />
-          <span className="font-display text-lg font-semibold tracking-tight text-white">
+          <span className="font-display text-lg font-semibold tracking-tight text-foreground">
             EverSmile
           </span>
         </Link>
@@ -74,29 +76,33 @@ export default function Navbar() {
             <Link
               key={link.href}
               href={link.href}
-              className="text-sm font-medium text-muted transition-colors hover:text-white"
+              className="text-sm font-medium text-muted transition-colors hover:text-foreground"
             >
               {link.label}
             </Link>
           ))}
         </nav>
 
-        <div className="hidden lg:block">
-          <Button href="#contact" variant="primary" size="md">
+        <div className="hidden items-center gap-2 lg:flex">
+          <ThemeToggle />
+          <Button href="/booking" variant="primary" size="md">
             Book Appointment
           </Button>
         </div>
 
-        <button
-          type="button"
-          onClick={() => setIsMenuOpen((prev) => !prev)}
-          aria-expanded={isMenuOpen}
-          aria-controls="mobile-menu"
-          aria-label={isMenuOpen ? "Close menu" : "Open menu"}
-          className="flex h-10 w-10 items-center justify-center rounded-full text-white lg:hidden"
-        >
-          {isMenuOpen ? <HiOutlineX size={24} /> : <HiOutlineMenu size={24} />}
-        </button>
+        <div className="flex items-center gap-1 lg:hidden">
+          <ThemeToggle />
+          <button
+            type="button"
+            onClick={() => setIsMenuOpen((prev) => !prev)}
+            aria-expanded={isMenuOpen}
+            aria-controls="mobile-menu"
+            aria-label={isMenuOpen ? "Close menu" : "Open menu"}
+            className="flex h-10 w-10 items-center justify-center rounded-full text-foreground"
+          >
+            {isMenuOpen ? <HiOutlineX size={24} /> : <HiOutlineMenu size={24} />}
+          </button>
+        </div>
       </Container>
 
       <AnimatePresence>
@@ -116,12 +122,12 @@ export default function Navbar() {
                   key={link.href}
                   href={link.href}
                   onClick={() => setIsMenuOpen(false)}
-                  className="rounded-lg px-3 py-3 text-base font-medium text-muted transition-colors hover:bg-surface hover:text-white"
+                  className="rounded-lg px-3 py-3 text-base font-medium text-muted transition-colors hover:bg-surface hover:text-foreground"
                 >
                   {link.label}
                 </Link>
               ))}
-              <Button href="#contact" variant="primary" size="lg" className="mt-3 w-full">
+              <Button href="/booking" variant="primary" size="lg" className="mt-3 w-full">
                 Book Appointment
               </Button>
             </Container>

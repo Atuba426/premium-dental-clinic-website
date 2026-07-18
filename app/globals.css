@@ -1,59 +1,57 @@
+/* 1. Core Tailwind v4 Import */
 @import "tailwindcss";
 
+/* 2. Tailwind v4 Theme Configuration */
 @theme {
-  /* 1. Custom Theme Colors */
-  --color-background: #020617; /* Slate-950 deep near-black navy */
-  --color-surface: rgba(255, 255, 255, 0.04); /* Glass card fill */
-  --color-surface-hover: rgba(255, 255, 255, 0.07);
-  --color-border: rgba(255, 255, 255, 0.08);
-  --color-border-hover: rgba(255, 255, 255, 0.16);
+  /* Dynamically map theme colors to your CSS custom variables */
+  --color-background: var(--bg);
+  --color-surface: var(--surface);
+  --color-surface-hover: var(--surface-hover);
+  --color-border: var(--border);
+  --color-border-hover: var(--border-hover);
+  --color-foreground: var(--foreground);
+  --color-muted: var(--muted);
+
+  /* Static Brand Primary colors */
   --color-primary: #14b8a6;
   --color-primary-light: #2dd4bf;
   --color-primary-dark: #0f9488;
-  --color-muted: #94a3b8;
-
-  /* 2. Fonts mapped to Next.js font variables */
-  --font-sans: var(--font-inter);
-  --font-display: var(--font-sora);
-
-  /* 3. Backdrop Blur Scale Extensions */
-  --backdrop-blur-xs: 2px;
-
-  /* 4. Box Shadows */
-  --shadow-glow: 0 0 40px -10px rgba(20, 184, 166, 0.35);
-  --shadow-card: 0 8px 30px -12px rgba(0, 0, 0, 0.5);
-
-  /* 5. Border Radius */
-  --radius-2xl: 1.25rem;
-  --radius-3xl: 1.75rem;
-
-  /* 6. Max Widths */
-  --max-width-container: 1280px;
-
-  /* 7. Animations & Keyframes */
-  --animate-fade-up: fade-up 0.6s ease-out forwards;
-
-  @keyframes fade-up {
-    0% {
-      opacity: 0;
-      transform: translateY(16px);
-    }
-    100% {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
 }
 
-/* Base layer overrides */
+/* 3. Base Layer Styles & Dynamic Theme Tokens */
 @layer base {
+  /* Default and Explicit Dark Theme Token Values */
+  :root,
+  [data-theme="dark"] {
+    --bg: #020617;
+    --surface: rgba(255, 255, 255, 0.04);
+    --surface-hover: rgba(255, 255, 255, 0.07);
+    --border: rgba(255, 255, 255, 0.08);
+    --border-hover: rgba(255, 255, 255, 0.16);
+    --foreground: #ffffff;
+    --muted: #94a3b8;
+    color-scheme: dark;
+  }
+
+  /* Light Theme Token Values */
+  [data-theme="light"] {
+    --bg: #f8fafc;
+    --surface: rgba(15, 23, 42, 0.035);
+    --surface-hover: rgba(15, 23, 42, 0.06);
+    --border: rgba(15, 23, 42, 0.09);
+    --border-hover: rgba(15, 23, 42, 0.18);
+    --foreground: #0f172a;
+    --muted: #475569;
+    color-scheme: light;
+  }
+
   html {
     scroll-behavior: smooth;
   }
 
   body {
-    @apply bg-background text-white antialiased;
-    /* Premium dark subtle radial glow */
+    @apply bg-background text-foreground antialiased;
+    /* Subtle radial glow anchors the "premium" feel in both themes */
     background-image: 
       radial-gradient(
         ellipse 80% 50% at 50% -20%,
@@ -66,10 +64,11 @@
         transparent
       );
     background-attachment: fixed;
+    transition: background-color 0.2s ease, color 0.2s ease;
   }
 
   ::selection {
-    @apply bg-primary/30 text-white;
+    @apply bg-primary/30 text-foreground;
   }
 
   :focus-visible {
@@ -79,12 +78,12 @@
   }
 }
 
-/* Custom Components */
+/* 4. Component Styles (Tailwind v4 Native Syntax) */
 .glass {
   @apply bg-surface border border-border backdrop-blur-md;
 }
 
-/* Custom Utilities */
+/* 5. Utility Extensions (Tailwind v4 Way) */
 @utility text-balance {
   text-wrap: balance;
 }
