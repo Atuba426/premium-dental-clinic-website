@@ -52,7 +52,7 @@ export default function Hero() {
                 Book Appointment
               </Button>
               <Button
-                className="text-black"
+                className="text-black dark:text-white"
                 href="#services"
                 variant="secondary"
                 size="lg"
