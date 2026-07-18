@@ -58,7 +58,7 @@ function FaqItem({
           onClick={() => setIsOpen((prev) => !prev)}
           className="flex w-full items-center justify-between gap-4 px-6 py-5 text-left"
         >
-          <span className="font-display text-base font-medium text-white sm:text-lg">
+          <span className="font-display text-base font-medium text-black dark:text-white sm:text-lg">
             {question}
           </span>
           <HiChevronDown

@@ -46,8 +46,8 @@ export default function Hero() {
             <div className="flex flex-col gap-4 sm:flex-row sm:items-center">
               <Button href="#contact" variant="primary" size="lg">
                 Book Appointment
-              </Button>
-              <Button href="#services" variant="secondary" size="lg">
+              </Button >
+              <Button className="text-black" href="#services" variant="secondary"  size="lg" >
                 Explore Services
               </Button>
             </div>
@@ -89,7 +89,7 @@ export default function Hero() {
               {TRUST_BADGES.slice(0, 1).map((badge) => (
                 <badge.icon key={badge.label} className="h-5 w-5 text-primary-light" aria-hidden="true" />
               ))}
-              <span className="text-sm font-medium text-white">Licensed & Insured</span>
+            <span className="text-sm font-medium text-black dark:text-white">Licensed & Insured</span>
             </div>
           </div>
         </Reveal>

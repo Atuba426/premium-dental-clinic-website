@@ -3,7 +3,6 @@
 
 /* 2. Tailwind v4 Theme Configuration */
 @theme {
-  /* Dynamically map theme colors to your CSS custom variables */
   --color-background: var(--bg);
   --color-surface: var(--surface);
   --color-surface-hover: var(--surface-hover);
@@ -12,7 +11,6 @@
   --color-foreground: var(--foreground);
   --color-muted: var(--muted);
 
-  /* Static Brand Primary colors */
   --color-primary: #14b8a6;
   --color-primary-light: #2dd4bf;
   --color-primary-dark: #0f9488;
@@ -20,7 +18,7 @@
 
 /* 3. Base Layer Styles & Dynamic Theme Tokens */
 @layer base {
-  /* Default and Explicit Dark Theme Token Values */
+  /* 🌙 DARK THEME */
   :root,
   [data-theme="dark"] {
     --bg: #020617;
@@ -28,22 +26,32 @@
     --surface-hover: rgba(255, 255, 255, 0.07);
     --border: rgba(255, 255, 255, 0.08);
     --border-hover: rgba(255, 255, 255, 0.16);
-    --foreground: #ffffff;
+    --foreground: #ffffff; /* Crisp white text for dark mode */
     --muted: #94a3b8;
+    
+    /* Dark mode background setup */
+    --body-bg-image: radial-gradient(ellipse 80% 50% at 50% -20%, rgba(20, 184, 166, 0.15), transparent),
+                     radial-gradient(ellipse 60% 40% at 100% 0%, rgba(20, 184, 166, 0.08), transparent);
     color-scheme: dark;
   }
 
-  /* Light Theme Token Values */
-  [data-theme="light"] {
-    --bg: #f8fafc;
-    --surface: rgba(15, 23, 42, 0.035);
-    --surface-hover: rgba(15, 23, 42, 0.06);
-    --border: rgba(15, 23, 42, 0.09);
-    --border-hover: rgba(15, 23, 42, 0.18);
-    --foreground: #0f172a;
-    --muted: #475569;
-    color-scheme: light;
-  }
+  
+ /* ☀️ STUNNING BLUE-GRADIENT LIGHT THEME */
+ [data-theme="light"] {
+  --bg: #a1cdeb;                          
+  
+  --surface-hover: rgba(255, 255, 255, 0.9);
+  --border: rgba(14, 165, 233, 0.2);       
+  --border-hover: rgba(14, 165, 233, 0.4);
+  
+  /* 💡 FIXED TEXT COLORS FOR MAXIMUM VISIBILITY */
+  --foreground: #08090a;                 
+  --muted: #3e4145;                       
+  
+ 
+  --body-bg-image: linear-gradient(135deg, #0f527f 0%, #e0f2fe 50%, #ccfbf1 100%); 
+  color-scheme: light;
+}
 
   html {
     scroll-behavior: smooth;
@@ -51,39 +59,30 @@
 
   body {
     @apply bg-background text-foreground antialiased;
-    /* Subtle radial glow anchors the "premium" feel in both themes */
-    background-image: 
-      radial-gradient(
-        ellipse 80% 50% at 50% -20%,
-        rgba(20, 184, 166, 0.15),
-        transparent
-      ),
-      radial-gradient(
-        ellipse 60% 40% at 100% 0%, 
-        rgba(20, 184, 166, 0.08), 
-        transparent
-      );
+    
+    /* Safe dynamic gradient rendering */
+    background-image: var(--body-bg-image);
     background-attachment: fixed;
-    transition: background-color 0.2s ease, color 0.2s ease;
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
   }
 
   ::selection {
-    @apply bg-primary/30 text-foreground;
+    @apply bg-primary/20 text-foreground;
   }
 
   :focus-visible {
-    outline: 2px solid var(--color-primary-light);
+    outline: 2px solid var(--color-primary);
     outline-offset: 3px;
     border-radius: 4px;
   }
 }
 
-/* 4. Component Styles (Tailwind v4 Native Syntax) */
+/* 4. Component Styles */
 .glass {
-  @apply bg-surface border border-border backdrop-blur-md;
+  @apply bg-surface border border-border backdrop-blur-md shadow-xs transition-all duration-300;
 }
 
-/* 5. Utility Extensions (Tailwind v4 Way) */
+/* 5. Utility Extensions */
 @utility text-balance {
   text-wrap: balance;
 }

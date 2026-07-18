@@ -14,24 +14,26 @@ const ThemeContext = createContext<ThemeContextValue | undefined>(undefined);
 const STORAGE_KEY = "eversmile-theme";
 
 export function ThemeProvider({ children }: { children: ReactNode }) {
-  // 1. Initialize state directly from the DOM attribute if it was already set by 
-  // your blocking script in layout.tsx. Fallback to "dark" if it hasn't run yet.
-  const [theme, setTheme] = useState<Theme>(() => {
-    if (typeof window !== "undefined") {
-      const existingAttr = document.documentElement.getAttribute("data-theme") as Theme | null;
-      if (existingAttr === "light" || existingAttr === "dark") {
-        return existingAttr;
-      }
-      const stored = localStorage.getItem(STORAGE_KEY) as Theme | null;
-      if (stored === "light" || stored === "dark") {
-        return stored;
-      }
-    }
-    return "dark";
-  });
+  const [theme, setTheme] = useState<Theme>("dark");
 
-  // 2. Synchronize state changes outward to the DOM and LocalStorage.
-  // This satisfies React's guideline: updating an external system with the latest state.
+  useEffect(() => {
+    // Deferring execution breaks the synchronous render phase loop,
+    // safely clearing out the "cascading renders" warning.
+    const timeoutId = setTimeout(() => {
+      const existingAttr = document.documentElement.getAttribute("data-theme") as Theme | null;
+      const stored = localStorage.getItem(STORAGE_KEY) as Theme | null;
+      
+      if (existingAttr === "light" || existingAttr === "dark") {
+        setTheme(existingAttr);
+      } else if (stored === "light" || stored === "dark") {
+        setTheme(stored);
+      }
+    }, 0);
+
+    return () => clearTimeout(timeoutId);
+  }, []);
+
+  // Update DOM attributes asynchronously based on state changes
   useEffect(() => {
     document.documentElement.setAttribute("data-theme", theme);
     localStorage.setItem(STORAGE_KEY, theme);

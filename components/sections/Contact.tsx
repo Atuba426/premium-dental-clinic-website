@@ -11,7 +11,7 @@ import { FaWhatsapp } from "react-icons/fa";
 import Container from "@/components/common/Container";
 import SectionHeader from "@/components/common/SectionHeader";
 import Button from "@/components/common/Button";
-import ImagePlaceholder from "@/components/common/ImagePlaceholder";
+
 
 const HOURS = [
   { day: "Monday – Friday", time: "8:00 AM – 6:00 PM" },
@@ -95,18 +95,20 @@ export default function Contact() {
                 Chat on WhatsApp
               </Button>
             </div>
+            <div className="aspect-4/3 w-full rounded-3xl overflow-hidden">
+  <iframe 
+    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d241146.90496047674!2d72.77723747314198!3d19.198679183287798!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7b6265a651385%3A0xeb7cdd62bab004cc!2sEversmile%20dental%20clinic!5e0!3m2!1sen!2sin!4v1784346366961!5m2!1sen!2sin" 
+    loading="lazy"
+    referrerPolicy="no-referrer-when-downgrade" 
+    className="h-full w-full border-0" 
+    title="Map showing EverSmile Dental Care location"
+  />
+</div>
+           
 
-            {/*
-              Real map integration: replace with
-              <iframe src="https://www.google.com/maps/embed?..." loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade" className="h-full w-full" />
-              Deferred for now so no third-party script loads before it's needed.
-            */}
-            <ImagePlaceholder
-              label="Map showing EverSmile Dental Care location"
-              className="aspect-4/3 w-full"
-              rounded="rounded-3xl"
-            />
+            
+     
+            
           </div>
 
           <form
