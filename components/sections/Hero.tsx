@@ -91,7 +91,7 @@ export default function Hero() {
             rounded="rounded-3xl"
           />
           <Image
-            src="/Dr Shah with patient.webp"
+            src="/Dr Shah with Patient.webp"
             alt="Dr. Amara Reyes"
             fill
             loading="eager"

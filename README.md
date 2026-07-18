@@ -135,9 +135,9 @@ This structure keeps reusable UI components separate from page sections, making 
 # 📌 Assumptions
 
 - This project represents a fictional dental clinic.
-- Appointment booking is demonstrated as a front-end interface only.
 - Images and branding are used for demonstration purposes.
-- Backend functionality such as database storage, authentication, and appointment management is outside the scope of this assignment.
+-contact numbers and location are Random.
+
 
 ---
 
@@ -175,9 +175,8 @@ These limitations were intentionally accepted because its not the Real project.
 
 ```
 
-## Services Section
 
-/screenshots/services-section.png
+![](public/screenshots/services-section.png)
 ```
 
 
