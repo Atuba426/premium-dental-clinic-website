@@ -18,7 +18,7 @@ const sora = Sora({
   display: "swap",
 });
 
-const siteUrl = "https://eversmiledental.example.com";
+const siteUrl = "https://premium-dental-clinic-website-nine.vercel.app/";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),

@@ -170,29 +170,16 @@ These limitations were intentionally accepted because its not the Real project.
 
 ## Home Page
 
-_Add screenshot here_
+![Home-page of Ever Smile clinic](public/screenshots/home-page.png)
 
-```
-screenshots/home.png
+
 ```
 
 ## Services Section
 
-_Add screenshot here_
-
-```
-screenshots/services.png
+/screenshots/services-section.png
 ```
 
-## Contact Section
-
-_Add screenshot here_
-
-```
-screenshots/contact.png
-```
-
----
 
 # 🌐 Live Demo
 
