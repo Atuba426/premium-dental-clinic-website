@@ -52,7 +52,7 @@ export default function About() {
           
           <div className="relative aspect-6/7 w-full overflow-hidden rounded-3xl shadow-card">
             <Image
-              src="/best-doctor-clinic.webp"
+              src="/clinic-doctor.jpg"
               alt="Dr. Amara Reyes with a patient in the treatment room"
               fill
               sizes="(min-width: 1024px) 50vw, 100vw"

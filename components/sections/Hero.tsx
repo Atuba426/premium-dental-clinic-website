@@ -1,4 +1,8 @@
-import { HiOutlineShieldCheck, HiOutlineStar, HiOutlineCalendarDays } from "react-icons/hi2";
+import {
+  HiOutlineShieldCheck,
+  HiOutlineStar,
+  HiOutlineCalendarDays,
+} from "react-icons/hi2";
 import Container from "@/components/common/Container";
 import Button from "@/components/common/Button";
 import ImagePlaceholder from "@/components/common/ImagePlaceholder";
@@ -37,8 +41,8 @@ export default function Hero() {
           <Reveal delay={0.1}>
             <p className="max-w-lg text-balance text-lg leading-relaxed text-muted">
               EverSmile Dental Care blends advanced dentistry with a calm,
-              modern experience — so every visit feels less like a
-              procedure and more like an upgrade to your everyday confidence.
+              modern experience — so every visit feels less like a procedure and
+              more like an upgrade to your everyday confidence.
             </p>
           </Reveal>
 
@@ -46,8 +50,13 @@ export default function Hero() {
             <div className="flex flex-col gap-4 sm:flex-row sm:items-center">
               <Button href="#contact" variant="primary" size="lg">
                 Book Appointment
-              </Button >
-              <Button className="text-black" href="#services" variant="secondary"  size="lg" >
+              </Button>
+              <Button
+                className="text-black"
+                href="#services"
+                variant="secondary"
+                size="lg"
+              >
                 Explore Services
               </Button>
             </div>
@@ -81,15 +90,27 @@ export default function Hero() {
             className="aspect-6/7 w-full shadow-card"
             rounded="rounded-3xl"
           />
-<Image src="/Dr Shah with Patient.webp" alt="Dr. Amara Reyes" fill className="object-cover" />
-
+          <Image
+            src="/Dr Shah with patient.webp"
+            alt="Dr. Amara Reyes"
+            fill
+            loading="eager"
+           sizes="(max-width: 1200px) 100vw, 1200px"
+            className="object-cover"
+          />
 
           <div className="glass absolute -bottom-6 -left-6 hidden flex-col gap-1 rounded-2xl px-5 py-4 shadow-card sm:flex">
             <div className="flex items-center gap-2">
               {TRUST_BADGES.slice(0, 1).map((badge) => (
-                <badge.icon key={badge.label} className="h-5 w-5 text-primary-light" aria-hidden="true" />
+                <badge.icon
+                  key={badge.label}
+                  className="h-5 w-5 text-primary-light"
+                  aria-hidden="true"
+                />
               ))}
-            <span className="text-sm font-medium text-black dark:text-white">Licensed & Insured</span>
+              <span className="text-sm font-medium text-black dark:text-white">
+                Licensed & Insured
+              </span>
             </div>
           </div>
         </Reveal>
@@ -98,8 +119,14 @@ export default function Hero() {
       <Reveal delay={0.25}>
         <Container className="mt-16 flex flex-wrap items-center justify-center gap-x-10 gap-y-4 border-t border-border pt-8">
           {TRUST_BADGES.map((badge) => (
-            <div key={badge.label} className="flex items-center gap-2 text-sm text-muted">
-              <badge.icon className="h-5 w-5 text-primary-light" aria-hidden="true" />
+            <div
+              key={badge.label}
+              className="flex items-center gap-2 text-sm text-muted"
+            >
+              <badge.icon
+                className="h-5 w-5 text-primary-light"
+                aria-hidden="true"
+              />
               <span>{badge.label}</span>
             </div>
           ))}

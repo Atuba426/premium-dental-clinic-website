@@ -3,6 +3,7 @@ import { Inter, Sora } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
+import WhatsAppButton from "@/components/common/WhatsAppButton";
 import { ThemeProvider } from "@/components/common/ThemeProvider";
 
 const inter = Inter({
@@ -93,6 +94,7 @@ export default function RootLayout({
         <ThemeProvider>
           <Navbar />
           <main>{children}</main>
+          <WhatsAppButton/>
           <Footer />
         </ThemeProvider>
       </body>
